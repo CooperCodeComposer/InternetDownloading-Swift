@@ -36,16 +36,12 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         setupImageDownload(activityIndicator3, url: url3, imageView: imageView3)
         setupImageDownload(activityIndicator4, url: url4, imageView: imageView4)
         
-    
     }
     
     func setupImageDownload(activityIndicator: UIActivityIndicatorView, url: NSURL, imageView: UIImageView)
     {
         // start activity indicator
         activityIndicator.startAnimating()
-        
-        // start status bar spinner
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         
         let session = NSURLSession.sharedSession()  // NOTE sharedSession is for basic requests
         
@@ -57,9 +53,6 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                 dispatch_async(dispatch_get_main_queue()) {
                     imageView.image = UIImage(data: data!)
                     imageView.contentMode = UIViewContentMode.ScaleAspectFit
-                    
-                    // stop status bar spinner
-                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                     
                     // stop activity indicator
                     activityIndicator.stopAnimating()
