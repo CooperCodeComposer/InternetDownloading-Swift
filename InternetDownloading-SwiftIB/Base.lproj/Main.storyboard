@@ -64,7 +64,7 @@
                                                 <color key="color" red="0.00033646567799999999" green="0.5532112656" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </activityIndicatorView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="ofG-hy-0Kg" firstAttribute="top" secondItem="LeN-YS-VF8" secondAttribute="bottom" constant="-168" id="0OF-s8-m7q"/>
                                             <constraint firstItem="YUb-Sg-fJL" firstAttribute="top" secondItem="i9Z-TX-WY9" secondAttribute="bottom" constant="-168" id="297-re-YYq"/>
@@ -123,6 +123,9 @@
                     <size key="freeformSize" width="600" height="1300"/>
                     <connections>
                         <outlet property="activityIndicator1" destination="LeN-YS-VF8" id="fXt-UX-AL0"/>
+                        <outlet property="activityIndicator2" destination="Igs-1x-4lr" id="XBN-o6-kIa"/>
+                        <outlet property="activityIndicator3" destination="oPj-kv-zeR" id="6v8-1Z-hrp"/>
+                        <outlet property="activityIndicator4" destination="i9Z-TX-WY9" id="eDe-G9-soz"/>
                         <outlet property="contentView" destination="W00-Hs-od3" id="ac4-FD-i7w"/>
                         <outlet property="imageView1" destination="ofG-hy-0Kg" id="V1G-jh-kdg"/>
                         <outlet property="imageView2" destination="PBb-tn-aVf" id="5xb-T4-SCa"/>

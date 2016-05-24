@@ -18,19 +18,36 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var imageView3: UIImageView!
     @IBOutlet weak var imageView4: UIImageView!
     @IBOutlet weak var activityIndicator1: UIActivityIndicatorView!
+    @IBOutlet weak var activityIndicator2: UIActivityIndicatorView!
+    @IBOutlet weak var activityIndicator3: UIActivityIndicatorView!
+    @IBOutlet weak var activityIndicator4: UIActivityIndicatorView!
     
-    var downloadTask: NSURLSessionDownloadTask!
-    var backgroundSession: NSURLSession!
+    let url1 = NSURL(string: "http://ucla201602.certifiednetworks.com/slowimage.php?delay=10")!
+    let url2 = NSURL(string: "https://s3-us-west-2.amazonaws.com/uclaiosclass/acPiano.jpg")!
+    let url3 = NSURL(string: "https://s3-us-west-2.amazonaws.com/uclaiosclass/acTaylor.jpg")!
+    let url4 = NSURL(string: "https://s3-us-west-2.amazonaws.com/uclaiosclass/acMoonSOT.jpg")!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        setupImageDownload(activityIndicator1, url: url1, imageView: imageView1)
+        setupImageDownload(activityIndicator2, url: url2, imageView: imageView2)
+        setupImageDownload(activityIndicator3, url: url3, imageView: imageView3)
+        setupImageDownload(activityIndicator4, url: url4, imageView: imageView4)
         
-        activityIndicator1.startAnimating()
+    
+    }
+    
+    func setupImageDownload(activityIndicator: UIActivityIndicatorView, url: NSURL, imageView: UIImageView)
+    {
+        // start activity indicator
+        activityIndicator.startAnimating()
         
-        // start network pinwheel
+        // start status bar spinner
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         
-        let url = NSURL(string: "https://s3-us-west-2.amazonaws.com/uclaiosclass/acPiano.jpg")!
+        
         let session = NSURLSession.sharedSession()  // NOTE sharedSession is for basic requests
         
         let downloadTask = session.dataTaskWithURL(url) { data, response, error in
@@ -39,12 +56,14 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                 
             } else {
                 dispatch_async(dispatch_get_main_queue()) {
-                    self.imageView1.image = UIImage(data: data!)
-                    self.imageView1.contentMode = UIViewContentMode.ScaleAspectFit
+                    imageView.image = UIImage(data: data!)
+                    imageView.contentMode = UIViewContentMode.ScaleAspectFit
                     
+                    // stop status bar spinner
                     UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                     
-                    self.activityIndicator1.stopAnimating()
+                    // stop activity indicator
+                    activityIndicator.stopAnimating()
                 }
                 
                 
@@ -53,11 +72,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         }
         
         downloadTask.resume()
-
         
-
-        
-    
     }
     
 
