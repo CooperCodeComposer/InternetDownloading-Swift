@@ -47,7 +47,6 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         // start status bar spinner
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         
-        
         let session = NSURLSession.sharedSession()  // NOTE sharedSession is for basic requests
         
         let downloadTask = session.dataTaskWithURL(url) { data, response, error in
@@ -65,7 +64,6 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                     // stop activity indicator
                     activityIndicator.stopAnimating()
                 }
-                
                 
             }
             
