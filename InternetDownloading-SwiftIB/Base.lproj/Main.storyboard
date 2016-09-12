@@ -14,14 +14,14 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="1300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kr1-Ga-Ndv">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="1300"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W00-Hs-od3">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1300"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ofG-hy-0Kg" userLabel="ImageView1">
                                                 <rect key="frame" x="8" y="8" width="584" height="300"/>
@@ -41,12 +41,6 @@
                                                     <constraint firstAttribute="height" constant="300" id="Lw4-hV-3Mp"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YUb-Sg-fJL" userLabel="imageView4">
-                                                <rect key="frame" x="8" y="932" width="584" height="300"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="300" id="vPp-Yi-czA"/>
-                                                </constraints>
-                                            </imageView>
                                             <activityIndicatorView opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="LeN-YS-VF8">
                                                 <rect key="frame" x="282" y="139" width="37" height="37"/>
                                                 <color key="color" red="0.00033646567799999999" green="0.5532112656" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -59,37 +53,27 @@
                                                 <rect key="frame" x="282" y="755" width="37" height="37"/>
                                                 <color key="color" red="0.00033646567799999999" green="0.5532112656" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="i9Z-TX-WY9">
-                                                <rect key="frame" x="282" y="1063" width="37" height="37"/>
-                                                <color key="color" red="0.00033646567799999999" green="0.5532112656" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="ofG-hy-0Kg" firstAttribute="top" secondItem="LeN-YS-VF8" secondAttribute="bottom" constant="-168" id="0OF-s8-m7q"/>
-                                            <constraint firstItem="YUb-Sg-fJL" firstAttribute="top" secondItem="i9Z-TX-WY9" secondAttribute="bottom" constant="-168" id="297-re-YYq"/>
                                             <constraint firstItem="PBb-tn-aVf" firstAttribute="leading" secondItem="W00-Hs-od3" secondAttribute="leading" constant="8" id="3Ew-Qs-TNA"/>
                                             <constraint firstItem="ofG-hy-0Kg" firstAttribute="leading" secondItem="W00-Hs-od3" secondAttribute="leading" constant="8" id="6j6-wo-PoS"/>
                                             <constraint firstItem="LeN-YS-VF8" firstAttribute="centerX" secondItem="W00-Hs-od3" secondAttribute="centerX" id="Cuj-Bc-6dd"/>
                                             <constraint firstAttribute="trailing" secondItem="ofG-hy-0Kg" secondAttribute="trailing" constant="8" id="DG9-3y-ton"/>
                                             <constraint firstItem="8Zi-Fp-J5e" firstAttribute="top" secondItem="PBb-tn-aVf" secondAttribute="bottom" constant="8" id="Dc9-OV-UQK"/>
                                             <constraint firstAttribute="trailing" secondItem="8Zi-Fp-J5e" secondAttribute="trailing" constant="8" id="FSl-LI-fco"/>
-                                            <constraint firstAttribute="trailing" secondItem="YUb-Sg-fJL" secondAttribute="trailing" constant="8" id="O13-Le-RXw"/>
-                                            <constraint firstAttribute="height" constant="1300" id="QwX-S7-529"/>
+                                            <constraint firstAttribute="height" constant="1000" id="QwX-S7-529"/>
                                             <constraint firstItem="PBb-tn-aVf" firstAttribute="top" secondItem="Igs-1x-4lr" secondAttribute="bottom" constant="-168" id="RAh-e5-YDW"/>
                                             <constraint firstItem="oPj-kv-zeR" firstAttribute="centerX" secondItem="W00-Hs-od3" secondAttribute="centerX" id="SjY-Z4-pka"/>
-                                            <constraint firstItem="i9Z-TX-WY9" firstAttribute="centerX" secondItem="W00-Hs-od3" secondAttribute="centerX" id="Xku-tf-xMW"/>
                                             <constraint firstAttribute="trailing" secondItem="PBb-tn-aVf" secondAttribute="trailing" constant="8" id="Zqs-UK-DOq"/>
                                             <constraint firstItem="Igs-1x-4lr" firstAttribute="centerX" secondItem="W00-Hs-od3" secondAttribute="centerX" id="aiI-jQ-V3D"/>
-                                            <constraint firstAttribute="bottom" secondItem="YUb-Sg-fJL" secondAttribute="bottom" constant="68" id="cZw-fY-k8o"/>
                                             <constraint firstItem="LeN-YS-VF8" firstAttribute="centerY" secondItem="W00-Hs-od3" secondAttribute="centerY" id="e48-og-DXD"/>
                                             <constraint firstItem="LeN-YS-VF8" firstAttribute="centerX" secondItem="W00-Hs-od3" secondAttribute="centerX" id="har-nt-h9P"/>
                                             <constraint firstItem="ofG-hy-0Kg" firstAttribute="top" secondItem="W00-Hs-od3" secondAttribute="top" constant="8" id="mQ2-DE-Ro8"/>
                                             <constraint firstItem="8Zi-Fp-J5e" firstAttribute="leading" secondItem="W00-Hs-od3" secondAttribute="leading" constant="8" id="nDG-8k-wNV"/>
                                             <constraint firstItem="8Zi-Fp-J5e" firstAttribute="top" secondItem="oPj-kv-zeR" secondAttribute="bottom" constant="-168" id="q2J-nB-9ra"/>
                                             <constraint firstItem="PBb-tn-aVf" firstAttribute="top" secondItem="ofG-hy-0Kg" secondAttribute="bottom" constant="8" id="tB6-XP-yep"/>
-                                            <constraint firstItem="YUb-Sg-fJL" firstAttribute="top" secondItem="8Zi-Fp-J5e" secondAttribute="bottom" constant="8" id="xk1-WX-oPd"/>
-                                            <constraint firstItem="YUb-Sg-fJL" firstAttribute="leading" secondItem="W00-Hs-od3" secondAttribute="leading" constant="8" id="ytJ-ya-VZN"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -120,17 +104,15 @@
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="1300"/>
+                    <size key="freeformSize" width="600" height="1000"/>
                     <connections>
                         <outlet property="activityIndicator1" destination="LeN-YS-VF8" id="fXt-UX-AL0"/>
                         <outlet property="activityIndicator2" destination="Igs-1x-4lr" id="XBN-o6-kIa"/>
                         <outlet property="activityIndicator3" destination="oPj-kv-zeR" id="6v8-1Z-hrp"/>
-                        <outlet property="activityIndicator4" destination="i9Z-TX-WY9" id="eDe-G9-soz"/>
                         <outlet property="contentView" destination="W00-Hs-od3" id="ac4-FD-i7w"/>
                         <outlet property="imageView1" destination="ofG-hy-0Kg" id="V1G-jh-kdg"/>
                         <outlet property="imageView2" destination="PBb-tn-aVf" id="5xb-T4-SCa"/>
                         <outlet property="imageView3" destination="8Zi-Fp-J5e" id="pod-Wl-nvc"/>
-                        <outlet property="imageView4" destination="YUb-Sg-fJL" id="wuf-Zc-F87"/>
                         <outlet property="scrollView" destination="Kr1-Ga-Ndv" id="BiJ-H9-zUC"/>
                     </connections>
                 </viewController>

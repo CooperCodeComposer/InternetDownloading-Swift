@@ -16,29 +16,68 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var imageView1: UIImageView!
     @IBOutlet weak var imageView2: UIImageView!
     @IBOutlet weak var imageView3: UIImageView!
-    @IBOutlet weak var imageView4: UIImageView!
     @IBOutlet weak var activityIndicator1: UIActivityIndicatorView!
     @IBOutlet weak var activityIndicator2: UIActivityIndicatorView!
     @IBOutlet weak var activityIndicator3: UIActivityIndicatorView!
-    @IBOutlet weak var activityIndicator4: UIActivityIndicatorView!
     
-    let url1 = NSURL(string: "http://ucla201602.certifiednetworks.com/slowimage.php?delay=10")!
-    let url2 = NSURL(string: "https://s3-us-west-2.amazonaws.com/uclaiosclass/acPiano.jpg")!
-    let url3 = NSURL(string: "https://s3-us-west-2.amazonaws.com/uclaiosclass/acTaylor.jpg")!
-    let url4 = NSURL(string: "https://s3-us-west-2.amazonaws.com/uclaiosclass/acMoonSOT.jpg")!
+    let url1 = NSURL(string: "https://s3-us-west-2.amazonaws.com/uclaiosclass/acPiano.jpg")!
+    let url2 = NSURL(string: "https://s3-us-west-2.amazonaws.com/uclaiosclass/acTaylor.jpg")!
+    let url3 = NSURL(string: "https://s3-us-west-2.amazonaws.com/uclaiosclass/acMoonSOT.jpg")!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        setupImageDownload(activityIndicator1, url: url1, imageView: imageView1)
-        setupImageDownload(activityIndicator2, url: url2, imageView: imageView2)
-        setupImageDownload(activityIndicator3, url: url3, imageView: imageView3)
-        setupImageDownload(activityIndicator4, url: url4, imageView: imageView4)
+        
+        setupImageDownload()
         
     }
     
-    func setupImageDownload(activityIndicator: UIActivityIndicatorView, url: NSURL, imageView: UIImageView)
+    func setupImageDownload() {
+        
+        downloadImage(activityIndicator1, url: url1) { (image: UIImage?) in
+            
+            guard let newImage = image else {
+                print("Error: value of image was nil")
+                return
+            }
+            
+            self.imageView1.image = newImage
+            self.imageView1.contentMode = UIViewContentMode.ScaleAspectFit
+            
+            // stop activity indicator
+            self.activityIndicator1.stopAnimating()
+        }
+        
+        downloadImage(activityIndicator2, url: url2) { (image: UIImage?) in
+            
+            guard let newImage = image else {
+                print("Error: value of image was nil")
+                return
+            }
+            
+            self.imageView2.image = newImage
+            self.imageView2.contentMode = UIViewContentMode.ScaleAspectFit
+            
+            // stop activity indicator
+            self.activityIndicator2.stopAnimating()
+        }
+        
+        downloadImage(activityIndicator3, url: url3) { (image: UIImage?) in
+            
+            guard let newImage = image else {
+                print("Error: value of image was nil")
+                return
+            }
+            
+            self.imageView3.image = newImage
+            self.imageView3.contentMode = UIViewContentMode.ScaleAspectFit
+            
+            // stop activity indicator
+            self.activityIndicator3.stopAnimating()
+        }
+        
+    }
+    
+    func downloadImage(activityIndicator: UIActivityIndicatorView, url: NSURL,completionHandler: (image: UIImage?) -> Void )
     {
         // start activity indicator
         activityIndicator.startAnimating()
@@ -47,16 +86,16 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         
         let downloadTask = session.dataTaskWithURL(url) { data, response, error in
             if data == nil {
-                print("\(error)")
+                print("Error downloading image: \(error)")
+                completionHandler(image: nil)
                 
             } else {
-                dispatch_async(dispatch_get_main_queue()) {
-                    imageView.image = UIImage(data: data!)
-                    imageView.contentMode = UIViewContentMode.ScaleAspectFit
-                    
-                    // stop activity indicator
-                    activityIndicator.stopAnimating()
-                }
+                let image = UIImage(data: data!)
+                
+                // update UI on the main thread
+                dispatch_async(dispatch_get_main_queue(), {
+                    completionHandler(image: image)
+                })
                 
             }
             
