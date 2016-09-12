@@ -20,9 +20,9 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var activityIndicator2: UIActivityIndicatorView!
     @IBOutlet weak var activityIndicator3: UIActivityIndicatorView!
     
-    let url1 = NSURL(string: "https://s3-us-west-2.amazonaws.com/uclaiosclass/acPiano.jpg")!
-    let url2 = NSURL(string: "https://s3-us-west-2.amazonaws.com/uclaiosclass/acTaylor.jpg")!
-    let url3 = NSURL(string: "https://s3-us-west-2.amazonaws.com/uclaiosclass/acMoonSOT.jpg")!
+    let url1 = NSURL(string: "https://s3-us-west-2.amazonaws.com/uclaiosclass/acPiano.jpg")
+    let url2 = NSURL(string: "https://s3-us-west-2.amazonaws.com/uclaiosclass/acTaylor.jpg")
+    let url3 = NSURL(string: "https://s3-us-west-2.amazonaws.com/uclaiosclass/acMoonSOT.jpg")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,12 +77,17 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         
     }
     
-    func downloadImage(activityIndicator: UIActivityIndicatorView, url: NSURL,completionHandler: (image: UIImage?) -> Void )
+    func downloadImage(activityIndicator: UIActivityIndicatorView, url: NSURL?,completionHandler: (image: UIImage?) -> Void )
     {
         // start activity indicator
         activityIndicator.startAnimating()
         
         let session = NSURLSession.sharedSession()  // NOTE sharedSession is for basic requests
+        
+        guard let url = url else {
+            print("Error with url")
+            return
+        }
         
         let downloadTask = session.dataTaskWithURL(url) { data, response, error in
             if data == nil {
