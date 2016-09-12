@@ -100,12 +100,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             }
             
         }
-        
         downloadTask.resume()
-        
     }
-
-
-
 }
 
